@@ -4,7 +4,7 @@
 #include "sala.h"
 #include "stock.h"
 int main(int argc, char *argv[]) {
-	
+	//prueba de edicion en git
 	Pelicula cartelera[5];
 	Sala prueba;
 	Cliente cliprueba;
