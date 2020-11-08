@@ -7,7 +7,7 @@ void peliFunciones(Sala *cine,Pelicula *peliculas){
 	int horario,sal,car;
 	Sala *point;
 	point=&cine;
-	printf("%d %d %d",&cine,point,cine);
+//	printf("%d %d %d",&cine,point,cine);
 	printf("Buenos dias Gerente\nQue peliculas vamos a mostrar hoy?\n");
 	while(b==1){
 		horario=4;
@@ -34,7 +34,7 @@ void peliFunciones(Sala *cine,Pelicula *peliculas){
 		printf("cual pelicula se reproducira en la sala? ");
 		scanf("%d",&car);
 		}
-		printf("%d %d %d",horario-1,sal-1,(3*(horario-1)+sal-1));
+	//	printf("%d %d %d",horario-1,sal-1,(3*(horario-1)+sal-1));
 		asignarPeli(point+(3*(horario-1)+sal-1),peliculas+car-1);
 		/*
 		Pelicula *out;
