@@ -1,6 +1,12 @@
 #ifndef SALA_H_INCLUDED
 #define SALA_H_INCLUDED
 //structs pelicula,cliente,sala
+typedef struct {
+	char *nombre;
+	float compra;
+	float venta;
+}Producto;
+
 typedef struct{
 	char *nombre;
 	int ventas;
@@ -11,7 +17,8 @@ typedef struct{
 typedef struct{
 	int edad;
 	int genero;
-	float cuenta;//despues para el vip
+	float cuenta;//suma de bandeja precio
+	//pila<comida> bandeja
 }Cliente;
 typedef struct{
 	Cliente *asientos[30][30];

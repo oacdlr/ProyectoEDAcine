@@ -4,7 +4,22 @@
 #include "sala.h"
 #include "stock.h"
 #include "gerente.h"
+#include "estructuras.h"
 int main() {
+	Producto pruebaprod;
+	stackProds *stackpru;
+	stackpru=pilaProducto(4);
+	pruebaprod.nombre="papas";
+	pruebaprod.venta=20.6;
+	printf("%s %.2f",pruebaprod.nombre,pruebaprod.venta);
+	pushPila(pruebaprod,stackpru);
+	pruebaprod.nombre="palomitas";
+	pruebaprod.venta=30.6;
+	printf("%s %.2f",pruebaprod.nombre,pruebaprod.venta);
+	pushPila(pruebaprod,stackpru);
+	Producto aux=popPila(stackpru);
+	printf("%s %.2f",aux.nombre,aux.venta);
+	/*
 	Sala cine[3][10];
 	Sala prueba;
 	Sala pr[2];
@@ -12,7 +27,6 @@ int main() {
 	Sala *prue;
 	Cliente cliprueba;
     Pelicula *peliculas;
-    int indice;	
 	peliculas = (Pelicula *)calloc(N, sizeof(Pelicula));
     llenarArreglo(peliculas);
     peliFunciones(cine,peliculas);
@@ -23,7 +37,7 @@ int main() {
 	//asignarPeli(prue+1,peliculas+8);
 	asignarPeli(&pru[1][1],peliculas+2);
 	limpiarSala(&prueba);
-	printf("%d %d",&cine[0][0],prue);
+//	printf("%d %d",&cine[0][0],prue);
 	cliprueba.cuenta=20.5;
 	prueba.asientos[2][3]=crearcliente(cliprueba);
 	printf("pelicula en el cine %s\n",cine[0][0].actual->nombre);
@@ -37,7 +51,7 @@ int main() {
 	printf("%.2f %s\n",prueba.asientos[2][4]->cuenta,prueba.actual->nombre);
 	limpiarSala(&cine[0][0]);
 	limpiarSala(&cine[0][1]);
-	printf("out");
+//	printf("out");
 	printf("%s",cine[0][0].actual->nombre);
 	//printf("%s",cine[0][1].actual->nombre);
 	/*
