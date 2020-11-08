@@ -4,10 +4,18 @@
 #define MAX_TEXTO 30
 #define N 9
 #include "sala.h"
+typedef struct Producto{
+	char *nombre;
+	float compra;
+	float venta;
+};
+
 void leer_cartelera();
 void llenarArreglo(Pelicula *peliculas);
 void crearPelicula(Pelicula *peliculas);
 void listarPeli(Pelicula peliculas);
 void listarCartelera(Pelicula *peliculas);
 void liberarMemoria(Pelicula *peliculas);
+
+//funciones de dulceria
 #endif 
