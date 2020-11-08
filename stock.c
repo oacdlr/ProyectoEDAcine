@@ -1,14 +1,20 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include "stock.h"
-void listarCartelera(Pelicula peliculas){
+void listarPeli(Pelicula peliculas){
     printf("\n===============================\n");
     printf("Pelicula: %s\n",peliculas.nombre);
     printf("Idioma: %s\n",peliculas.idioma);
     printf("Clasificacio: %s\n",peliculas.edadminima);
     printf("Genero: %s\n",peliculas.genero);
 }
-
+void listarCartelera(Pelicula *peliculas){
+	int i;
+	for(i=0;i<N;i++){
+		printf("Pelicula %i",i+1);
+		listarPeli(peliculas[i]);
+	}
+}
 void crearPelicula(Pelicula *peliculas){
     peliculas->nombre =(char *)malloc(MAX_TEXTO*sizeof(char));
     peliculas->genero =(char *)malloc(MAX_TEXTO*sizeof(char));
