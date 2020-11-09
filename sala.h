@@ -3,8 +3,9 @@
 //structs pelicula,cliente,sala
 typedef struct {
 	char *nombre;
-	float compra;
 	float venta;
+	float cantidad;
+	float precio;
 }Producto;
 
 typedef struct{

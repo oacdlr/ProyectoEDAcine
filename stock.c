@@ -23,19 +23,18 @@ void crearPelicula(Pelicula *peliculas){
 }
 
 void llenarArreglo(Pelicula *peliculas){
-    FILE *archivo;
+    FILE *archivodos;
     char linea[1024], delimitador[] = ",\n",delimitadordos[]="\n";
     char *token;
     int indice,dato;
 
-    archivo = fopen( ARCHIVO, "rt" );
-    if( archivo == NULL ){
+    archivodos = fopen( ARCHIVO, "rt" );
+    if( archivodos == NULL ){
         printf( "Error (NO ABIERTO)\n" );
         return ;
     }
-    token = strtok(linea, delimitadordos);
     indice = -1; //INICIALIZA EL INDICE DEL ARREGLO
-    while(fgets(linea,1023, archivo) != NULL){
+    while(fgets(linea,1023, archivodos) != NULL){
         token = strtok(linea, delimitador);
         indice++;
         while (token != NULL)
@@ -64,4 +63,61 @@ void liberarMemoria(Pelicula *peliculas)
     free(peliculas->genero);
 
 }
+///////////////////////////////////////////////////Parte de la dulcería
+///////////////////////////////////////////////////
+void atenter_cliente()
+{
+    Producto *productos;
+    int indice;
+    productos = (Producto *)calloc(NDOS, sizeof(Producto));
+    llenarArregloD(productos);
+
+    printf("\nHola, que deseas ordenar ??\n");
+    printf("\nTenemos el siguiente catálogo de dulces\n");
+
+
+
+}
+
+void crearDulce(Producto *productos){
+    productos->nombre =(char *)malloc(MAX_TEXTO*sizeof(char));
+}
+
+void llenarArregloD(Producto *productos)
+{
+    FILE *archivo;
+    char linea[1024], delimitador[] = ",\n",delimitadordos[]="\n";
+    char *token;
+    int indice,dato;
+
+    archivo = fopen( ARCHIVODOS, "rt" );
+    if( archivo == NULL ){
+        printf( "Error (NO ABIERTO)\n" );
+        return ;
+    }
+    indice = -1; //INICIALIZA EL INDICE DEL ARREGLO
+    while(fgets(linea,1023, archivo) != NULL){
+        token = strtok(linea, delimitador);
+        indice++;
+        while (token != NULL)
+            {
+            //1o. se crea la memoria que falta para el cliente i-esimo
+            crearDulce(&productos[indice]);
+            //2o. se copia en los elementois del cliente el token
+            strcpy(productos[indice].nombre,token);
+            token = strtok(NULL, delimitador);
+            productos[indice].cantidad=atoi(token);
+            token = strtok(NULL, delimitador);
+            productos[indice].precio=atoi(token);
+            //3o. se lee el último token para verificar que termino de leer la linea
+            //el valor del token será NULL por ello termina el ciclo while
+            token = strtok(NULL, delimitador);
+        }
+    }
+
+
+
+
+}
+
 

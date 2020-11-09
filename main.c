@@ -6,7 +6,29 @@
 #include "gerente.h"
 #include "estructuras.h"
 int main() {
-	Producto pruebaprod;
+
+  atenter_cliente();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*Producto pruebaprod;
 	stackProds *stackpru;
 	stackpru=pilaProducto(4);
 	pruebaprod.nombre="papas";
@@ -60,7 +82,7 @@ int main() {
 	imprimirSala(prueba);
 	cancelarcompra(&prueba);
 	imprimirSala(prueba);
-	printf("%d",prueba.actual->ventas);
-	*/
+	printf("%d",prueba.actual->ventas);*/
+
 	return 0;
 }
