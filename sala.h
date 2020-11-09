@@ -21,7 +21,7 @@ typedef struct{
 	//pila<comida> bandeja
 }Cliente;
 typedef struct{
-	Cliente *asientos[30][30];
+	Cliente *asientos[16][16];
 	Pelicula *actual;
 }Sala;
 //funciones
@@ -33,4 +33,5 @@ void imprimirSala(Sala sala);
 void compraasiento(Sala *sala);
 void cancelarcompra(Sala *sala);
 void mostrarCine(Sala *cine);  
+void eleccionSala(int *horario,int *sal);
 #endif

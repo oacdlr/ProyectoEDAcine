@@ -7,8 +7,8 @@ void asignarPeli(Sala *sala,Pelicula *peli){
 }
 void limpiarSala(Sala *sala){
 	int i,j;
-	for(i=0;i<30;i++){
-		for(j=0;j<30;j++){
+	for(i=0;i<16;i++){
+		for(j=0;j<16;j++){
 			sala->asientos[i][j]=NULL;
 		}
 	}
@@ -86,6 +86,7 @@ void compraasiento(Sala *sala){
 		sala->asientos[x1-1][y1-1]=sala->asientos[x-1][y-1];
 	}
 	sala->actual->ventas+=bol;
+	printf("Boletos adquiridos completamente\n");
 }
 
 void cancelarcompra(Sala *sala){
@@ -107,6 +108,7 @@ void cancelarcompra(Sala *sala){
 		sala->asientos[x-1][y-1]=NULL;
 	}
 	sala->actual->ventas-=bol;
+	printf("Boletos cancelados correctamente\n");
 }
 
 void mostrarCine(Sala *cine){
@@ -116,8 +118,12 @@ void mostrarCine(Sala *cine){
 	for(i=0;i<3;i++){
 		for(j=0;j<10;j++){
 			if((cine+(10*i)+j)->actual!=NULL){
-				printf("En el horario %d en la sala %d tenemos %s\n",i+1,j+1,(cine+3*i+j)->actual->nombre); 
+				printf("En el horario %d en la sala %d tenemos %s\n",i+1,j+1,(cine+(10*i)+j)->actual->nombre); 
 			}
 		}
 	}
+}
+void eleccionSala(int *horario,int *sal){
+	*horario=desplegarMenu("En que horario esta la pelicula?\n1)matutino\t2)vespertino\t3)nocturno ",3);
+	*sal=desplegarMenu("En cual de las 10 salas esta la pelicula?ingrese un numero del 1 al 10 ",10);
 }

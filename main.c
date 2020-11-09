@@ -9,6 +9,10 @@
 int main() {
 	int horario,sal,pel;
 	Sala cine[3][10];  
+	//limpieza extra
+	cine[2][8].actual=NULL;
+	cine[2][9].actual=NULL;
+	//
 	Pelicula *peliculas;
 	peliculas = (Pelicula *)calloc(N, sizeof(Pelicula));
     llenarArreglo(peliculas);
@@ -40,10 +44,19 @@ int main() {
 					opsec=desplegarMenu("1)Compra de boleto\t2)Cancelacion de boleto\t3)salir",3);
 					switch(opsec){
 						case 1:
-							printf("in comp");
+							mostrarCine(cine);
+							do{
+							eleccionSala(&horario,&sal);
+							}while(cine[horario-1][sal-1].actual==NULL);
+							compraasiento(&cine[horario-1][sal-1]);
+							imprimirSala(cine[horario-1][sal-1]);
 							break;
 						case 2:
-							printf("in canc");
+							mostrarCine(cine);
+							do{
+							eleccionSala(&horario,&sal);
+							}while(cine[horario-1][sal-1].actual==NULL);
+							cancelarcompra(&cine[horario-1][sal-1]);
 							break;
 					}
 				}while(opsec!=3);
@@ -63,7 +76,6 @@ int main() {
 				break;
 		}
 	}while(opprin!=4);
-//	mostrarCine(cine);
 	//*/
 	/*
 	//espacio para pruebas
