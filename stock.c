@@ -67,11 +67,11 @@ void liberarMemoria(Pelicula *peliculas)
 ///////////////////////////////////////////////////
 void atenter_cliente()
 {
+    //Parte del main
     Producto *productos;
-    int indice;
-    productos = (Producto *)calloc(NDOS, sizeof(Producto));
+    productos = (Producto *)calloc(NDOS, sizeof(Producto));//
     llenarArregloD(productos);
-
+     ////
     printf("\nHola, que deseas ordenar ??\n");
     printf("\nTenemos el siguiente catálogo de dulces\n");
     listarDulces(productos);
