@@ -7,15 +7,18 @@ typedef struct{
 	int tope;
 	int max;
 }stackProds;
-
+//funciones stack
 stackProds *crearPila(int n);
 int pilaLLena(stackProds *pila);
 void pushPila(Producto dato,stackProds *pila);
-void listarPila(stackProds pila);
+void listarPila(stackProds *pila); 
 int pilaVacia(stackProds *pila);
 Producto popPila(stackProds *pila);
 void inicializarPila(stackProds *pila);
 void liberaMamoria(stackProds *pila);
 void pruebaes(); 
+
+//funciones queue
+
 
 #endif

@@ -29,6 +29,7 @@ void llenarDatos(Cliente *in){
 }
 void imprimirSala(Sala sala){
 	int i,j;
+	printf("la pelicula en esta sala es:%s\n",sala.actual->nombre);
 	printf("imprimiendo Sala.....X ocupado O disponible\n  ");
 	for(i=0;i<15;i++)
 		printf("%d ",i+1);
@@ -56,7 +57,6 @@ void compraasiento(Sala *sala){
 	if(i==1){
 		llenarDatos(&cli);
 	}
-	//pregunta de datos edad,genero, cuenta=0;
 	printf("cuantos asientos van a ser?\n");
 	scanf("%d",&bol);
 	while(b==0){
@@ -107,4 +107,17 @@ void cancelarcompra(Sala *sala){
 		sala->asientos[x-1][y-1]=NULL;
 	}
 	sala->actual->ventas-=bol;
+}
+
+void mostrarCine(Sala *cine){
+	int i,j;
+	printf("las peliculas reproduciendose son:\n");
+	printf("Considere que existen 3 horarios:\n1)matutino\t2)vespertino\t3)nocturno\n");
+	for(i=0;i<3;i++){
+		for(j=0;j<10;j++){
+			if((cine+(10*i)+j)->actual!=NULL){
+				printf("En el horario %d en la sala %d tenemos %s\n",i+1,j+1,(cine+3*i+j)->actual->nombre); 
+			}
+		}
+	}
 }

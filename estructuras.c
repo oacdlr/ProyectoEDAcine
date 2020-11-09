@@ -19,10 +19,10 @@ void pushPila(Producto dato,stackProds *pila){
     pila->tope ++;
     pila->bandeja[pila->tope]=dato;
 }
-void listarPila(stackProds pila){
+void listarPila(stackProds *pila){
     int i;
-    for (i= pila.tope; i >= 0; i--)
-        printf("\npila[%i] = %s ", i,pila.bandeja->nombre);
+    for (i= pila->tope; i >= 0; i--)
+        printf("\npila[%i] = %s ", i,pila->bandeja->nombre); 
 }
 int pilaVacia(stackProds *pila){
     return (pila->tope == -1);

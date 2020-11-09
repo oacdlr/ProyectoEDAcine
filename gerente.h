@@ -3,6 +3,6 @@
 #include "sala.h"
 #include "stock.h"
 
-void peliFunciones(Sala *cine,Pelicula *peliculas);
+void peliFunciones(Pelicula *peliculas,int *horario,int *sal,int *pel); 
 //funciones de estadistica
 #endif

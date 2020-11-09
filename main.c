@@ -1,34 +1,73 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "menu.h"
 #include "ctype.h"
 #include "sala.h"
 #include "stock.h"
 #include "gerente.h"
 #include "estructuras.h"
 int main() {
-
-  atenter_cliente();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	/*Producto pruebaprod;
+	int horario,sal,pel;
+	Sala cine[3][10];  
+	Pelicula *peliculas;
+	peliculas = (Pelicula *)calloc(N, sizeof(Pelicula));
+    llenarArreglo(peliculas);
+	//menu principal
+	int opprin,opsec;
+	do{
+		opprin=desplegarMenu("1)Menu Gerente\t2)Menu Taquilla\t3)Menu Dulceria\t4)salir",4);
+		switch(opprin){
+			case 1:
+				do{
+					opsec=desplegarMenu("1)Asignar Funciones a salas\n2)Estadisticas del Cine\n3)salir",3);
+					switch(opsec){
+						case 1:
+							printf("Buenos dias Gerente,que peliculas vamos a mostrar hoy?");
+							do{
+								peliFunciones(peliculas,&horario,&sal,&pel);
+								asignarPeli(&cine[horario-1][sal-1],peliculas+pel-1);
+								limpiarSala(&cine[horario-1][sal-1]);
+							}while(desplegarMenu("Desea seguir agendando?\n1)si  2)no",2)==1);
+							break;
+						case 2:
+							printf("in estad");
+							break;
+					}
+				}while(opsec!=3);
+				break;
+			case 2:
+				do{
+					opsec=desplegarMenu("1)Compra de boleto\t2)Cancelacion de boleto\t3)salir",3);
+					switch(opsec){
+						case 1:
+							printf("in comp");
+							break;
+						case 2:
+							printf("in canc");
+							break;
+					}
+				}while(opsec!=3);
+				break;
+			case 3:
+				do{
+					opsec=desplegarMenu("1)Encolar Cliente\t2)Atender Cliente\t3)salir",3);
+					switch(opsec){
+					case 1:
+						printf("in enc");
+						break;
+					case 2:
+						printf("in atend");
+						break;
+					}
+				}while(opsec!=3);
+				break;
+		}
+	}while(opprin!=4);
+//	mostrarCine(cine);
+	//*/
+	/*
+	//espacio para pruebas
+	Producto pruebaprod;
 	stackProds *stackpru;
 	stackpru=pilaProducto(4);
 	pruebaprod.nombre="papas";
@@ -39,19 +78,19 @@ int main() {
 	pruebaprod.venta=30.6;
 	printf("%s %.2f",pruebaprod.nombre,pruebaprod.venta);
 	pushPila(pruebaprod,stackpru);
+	listarPila(stackpru);
 	Producto aux=popPila(stackpru);
 	printf("%s %.2f",aux.nombre,aux.venta);
-	/*
-	Sala cine[3][10];
 	Sala prueba;
 	Sala pr[2];
 	Sala pru[2][3];
 	Sala *prue;
 	Cliente cliprueba;
-    Pelicula *peliculas;
-	peliculas = (Pelicula *)calloc(N, sizeof(Pelicula));
-    llenarArreglo(peliculas);
-    peliFunciones(cine,peliculas);
+    peliFunciones(peliculas,&horario,&sal,&pel);
+	printf("%d %d",horario,sal);
+	asignarPeli(&cine[horario-1][sal-1],peliculas+pel-1);
+    printf("%s",cine[horario-1][sal-1].actual->nombre);
+	/*
 	asignarPeli(&cine[0][0],peliculas+8);
 	asignarPeli(&prueba,peliculas);
   	asignarPeli(&pr[1],peliculas+1);
@@ -82,7 +121,7 @@ int main() {
 	imprimirSala(prueba);
 	cancelarcompra(&prueba);
 	imprimirSala(prueba);
-	printf("%d",prueba.actual->ventas);*/
-
+	printf("%d",prueba.actual->ventas);
+	*/
 	return 0;
 }
