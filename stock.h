@@ -15,7 +15,10 @@ void listarCartelera(Pelicula *peliculas);
 void liberarMemoria(Pelicula *peliculas);
 ////////////////////////////////////////
 ///////////////////////////////////////
-
-
+void atenter_cliente();
+void crearDulce(Producto *productos);
+void llenarArregloD(Producto *productos);
+void listarDulces(Producto *productos);
+void listarDulce(Producto productos);
 //funciones de dulceria
 #endif

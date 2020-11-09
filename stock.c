@@ -74,6 +74,7 @@ void atenter_cliente()
 
     printf("\nHola, que deseas ordenar ??\n");
     printf("\nTenemos el siguiente catálogo de dulces\n");
+    listarDulces(productos);
 
 
 
@@ -108,7 +109,7 @@ void llenarArregloD(Producto *productos)
             token = strtok(NULL, delimitador);
             productos[indice].cantidad=atoi(token);
             token = strtok(NULL, delimitador);
-            productos[indice].precio=atoi(token);
+            productos[indice].precio=atof(token);
             //3o. se lee el último token para verificar que termino de leer la linea
             //el valor del token será NULL por ello termina el ciclo while
             token = strtok(NULL, delimitador);
@@ -120,4 +121,13 @@ void llenarArregloD(Producto *productos)
 
 }
 
-
+void listarDulces(Producto *productos){
+	int i;
+	for(i=0;i<NDOS;i++){
+		printf("%i",i+1);
+		listarDulce(productos[i]);
+	}
+}
+void listarDulce(Producto productos){
+    printf("%s ---------------%.2f\n",productos.nombre,productos.precio);
+}
