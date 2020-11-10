@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include "sala.h"
 #include "stock.h"
 void listarPeli(Pelicula peliculas){
     printf("\n===============================\n");
@@ -49,8 +50,8 @@ void llenarArreglo(Pelicula *peliculas){
             strcpy(peliculas[indice].edadminima,token);
             token = strtok(NULL, delimitador);
             strcpy(peliculas[indice].genero,token);
-            //3o. se lee el último token para verificar que termino de leer la linea
-            //el valor del token será NULL por ello termina el ciclo while
+            //3o. se lee el ?ltimo token para verificar que termino de leer la linea
+            //el valor del token ser? NULL por ello termina el ciclo while
             token = strtok(NULL, delimitador);
         }
     }
@@ -63,22 +64,9 @@ void liberarMemoria(Pelicula *peliculas)
     free(peliculas->genero);
 
 }
-///////////////////////////////////////////////////Parte de la dulcería
+///////////////////////////////////////////////////Parte de la dulcer?a
 ///////////////////////////////////////////////////
-void atenter_cliente()
-{
-    //Parte del main
-    Producto *productos;
-    productos = (Producto *)calloc(NDOS, sizeof(Producto));//
-    llenarArregloD(productos);
-     ////
-    printf("\nHola, que deseas ordenar ??\n");
-    printf("\nTenemos el siguiente catálogo de dulces\n");
-    listarDulces(productos);
 
-
-
-}
 
 void crearDulce(Producto *productos){
     productos->nombre =(char *)malloc(MAX_TEXTO*sizeof(char));
@@ -110,8 +98,8 @@ void llenarArregloD(Producto *productos)
             productos[indice].cantidad=atoi(token);
             token = strtok(NULL, delimitador);
             productos[indice].precio=atof(token);
-            //3o. se lee el último token para verificar que termino de leer la linea
-            //el valor del token será NULL por ello termina el ciclo while
+            //3o. se lee el ?ltimo token para verificar que termino de leer la linea
+            //el valor del token ser? NULL por ello termina el ciclo while
             token = strtok(NULL, delimitador);
         }
     }
@@ -130,4 +118,15 @@ void listarDulces(Producto *productos){
 }
 void listarDulce(Producto productos){
     printf("%s ---------------%.2f\n",productos.nombre,productos.precio);
+}
+
+void atenter_cliente(Producto *productos){
+    //Parte del main
+     ////
+    printf("\nHola, que deseas ordenar ??\n");
+    printf("\nTenemos el siguiente cat?logo de dulces\n");
+    listarDulces(productos);
+
+
+
 }

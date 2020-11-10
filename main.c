@@ -16,6 +16,11 @@ int main() {
 	Pelicula *peliculas;
 	peliculas = (Pelicula *)calloc(N, sizeof(Pelicula));
     llenarArreglo(peliculas);
+    Producto *productos;
+    productos = (Producto *)calloc(NDOS, sizeof(Producto));//
+    llenarArregloD(productos);
+    listarDulces(productos);
+    
 	//menu principal
 	int opprin,opsec;
 	do{
@@ -49,6 +54,7 @@ int main() {
 							eleccionSala(&horario,&sal);
 							}while(cine[horario-1][sal-1].actual==NULL);
 							compraasiento(&cine[horario-1][sal-1]);
+							//se compro asiento
 							imprimirSala(cine[horario-1][sal-1]);
 							break;
 						case 2:
@@ -67,6 +73,7 @@ int main() {
 					switch(opsec){
 					case 1:
 						printf("in enc");
+						
 						break;
 					case 2:
 						printf("in atend");
