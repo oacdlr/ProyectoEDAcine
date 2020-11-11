@@ -21,25 +21,31 @@ int main() {
 	peliculas = (Pelicula *)calloc(N, sizeof(Pelicula));
     llenarArreglo(peliculas);
     stackProds *pila;
-    pila = crearPila(NDOS);//NDOS es el numero de productos de la bandeja
+    pila = crearPila(1);//NDOS es el numero de productos de la bandeja
     Cola *personas;
     Cliente *uncliente;
-    uncliente=crearcliente(uncliente);
+    uncliente=crearclienteD();
+    listarCliente(*uncliente);
     personas= crearCola(12);
     Producto *productos;
     productos = (Producto *)calloc(NDOS, sizeof(Producto));//
     llenarArregloD(productos);
     listarDulces(productos);
+    for(j=0;j<12;j++)
     for(i=0;i<NDOS;i++)//NDOS ES PUSO PORQUE ES EL NUMERO MÁXIMO DE COSAS QUE EL CLIENTE PUEDE PEDIR
     {
         printf("\nProducto %d\n",i+1);
         scanf("%d",&fproducto);
         fflush(stdin);
-        printf("%s",productos[fproducto-1]);
-        pushPila(productos[fproducto-1],&pila[0]);
-
+        pushPila(productos[fproducto-1],pila);
     }
-    listarPila(&pila[0]);
+    uncliente->bandeja=pila;
+    listarPila(uncliente->bandeja);
+    insertar(&personas[j],*uncliente);
+    free(uncliente->bandeja);
+    free(uncliente);
+
+
 
 	//menu principal
 	/*int opprin,opsec;

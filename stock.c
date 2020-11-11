@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include "sala.h"
 #include "stock.h"
+#include "gerente.h"
 void listarPeli(Pelicula peliculas){
     printf("\n===============================\n");
     printf("Pelicula: %s\n",peliculas.nombre);
@@ -127,6 +128,23 @@ void atenter_cliente(Producto *productos){
     printf("\nTenemos el siguiente cat?logo de dulces\n");
     listarDulces(productos);
 
+}
+Cliente *crearclienteD()
+{
+    Cliente *c_uno;
+    c_uno=(Cliente *)calloc(1,sizeof(Cliente));
 
+    c_uno->bandeja=(stackProds *)malloc(NDOS*sizeof(stackProds));
+	printf("cual es su edad? ");
+	scanf("%d",&c_uno->edad);
+	printf("cual es su genero?\n 1)Masculino\t2)Femenino ");
+	scanf("%d",&c_uno->genero);
+	c_uno->cuenta=0;
+	return c_uno;
 
 }
+void listarCliente(Cliente cliente)
+{
+    printf("\nCuenta: %0.2f  Edad: %d Genero: %d",cliente.cuenta,cliente.edad,cliente.genero);
+}
+

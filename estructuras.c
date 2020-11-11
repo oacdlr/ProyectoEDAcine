@@ -1,7 +1,8 @@
 #include<stdio.h>
-#include<stdlib.h>
+#include<stdlib.h>3
 #include "estructuras.h"
-
+#include "sala.h"
+#include "stock.h"
 stackProds *crearPila(int n){
     stackProds *nuevaPila;
     //crear la pila y el arreglo de la pila
@@ -46,7 +47,7 @@ void liberaMamoriaCola(stackProds *pila){
 Cola *crearCola(int max) {
     Cola *nuevaCola;
     //crear la cola y el arreglo
-    nuevaCola = (Cola *)malloc(sizeof(Cola));
+    nuevaCola = (Cola *)malloc(max*sizeof(Cola));
     nuevaCola->arrCola = (Cliente *)calloc(max,sizeof(Cliente));
     //INICIALIZAR
     nuevaCola->max = max;

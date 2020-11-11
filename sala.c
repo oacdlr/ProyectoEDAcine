@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include "sala.h"
+#include "stock.h"
+#include "gerente.h"
 void limpiarCine(Sala *sala){
 	sala->actual=NULL;
 }
@@ -21,7 +23,7 @@ Cliente *crearcliente(Cliente in){
 	newcl->cuenta=in.cuenta;
 	newcl->edad=in.edad;
 	newcl->genero=in.genero;
-	newcl->bandeja=(stackProds *)malloc(1*sizeof(stackProds));
+
 	return newcl;
 }
 void llenarDatos(Cliente *in){

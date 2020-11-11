@@ -19,6 +19,7 @@ typedef struct{
 	float cuenta;//suma de bandeja precio
 	stackProds *bandeja;
 }Cliente;
+
 typedef struct {
     int max; // tama?o de la cola
     int h;
