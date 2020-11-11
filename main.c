@@ -25,6 +25,20 @@ int main() {
     llenarArregloD(productos);
     listarDulces(productos);
     
+    
+	/*
+	Cliente prueba;
+    Cola *prue;
+    prue=crearCola(5);
+	prueba.bandeja=crearPila(4);
+    pushPila(productos[3],prueba.bandeja);
+    pushPila(productos[2],prueba.bandeja);
+    listarPila(prueba.bandeja);
+    insertar(prue,prueba);
+    listar(*prue);
+	*/
+	
+		
 	//menu principal
 	int opprin,opsec;
 	do{
