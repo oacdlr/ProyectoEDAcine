@@ -1,6 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include "sala.h"
+void limpiarCine(Sala *sala){
+	sala->actual=NULL;
+}
 void asignarPeli(Sala *sala,Pelicula *peli){
 	sala->actual=peli;
 	printf("se modifico y ahora es:%s\n",(sala->actual->nombre));

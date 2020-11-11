@@ -2,16 +2,20 @@
 #include <stdlib.h>
 #include "menu.h"
 #include "ctype.h"
-#include "sala.h"
 #include "stock.h"
-#include "gerente.h"
 #include "estructuras.h"
+#include "sala.h"
+#include "gerente.h"
 int main() {
 	int horario,sal,pel;
 	Sala cine[3][10];  
 	//limpieza extra
-	cine[2][8].actual=NULL;
-	cine[2][9].actual=NULL;
+	int i,j;
+	for(i=0;i<3;i++){
+			for(j=0;j<10;j++){
+				limpiarCine(&cine[i][j]);
+			}
+	}
 	//
 	Pelicula *peliculas;
 	peliculas = (Pelicula *)calloc(N, sizeof(Pelicula));
@@ -142,5 +146,6 @@ int main() {
 	imprimirSala(prueba);
 	printf("%d",prueba.actual->ventas);
 	*/
+	
 	return 0;
 }
