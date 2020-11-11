@@ -29,7 +29,7 @@ typedef struct {
 stackProds *crearPila(int n);
 int pilaLLena(stackProds *pila);
 void pushPila(Producto dato,stackProds *pila);
-void listarPila(stackProds *pila); 
+void listarPila(stackProds *pila);
 int pilaVacia(stackProds *pila);
 Producto popPila(stackProds *pila);
 void inicializarPila(stackProds *pila);

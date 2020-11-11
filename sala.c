@@ -21,6 +21,7 @@ Cliente *crearcliente(Cliente in){
 	newcl->cuenta=in.cuenta;
 	newcl->edad=in.edad;
 	newcl->genero=in.genero;
+	newcl->bandeja=(stackProds *)malloc(1*sizeof(stackProds));
 	return newcl;
 }
 void llenarDatos(Cliente *in){
@@ -48,7 +49,7 @@ void imprimirSala(Sala sala){
 		}
 		printf("\n");
 	}
-	
+
 }
 void compraasiento(Sala *sala){
 	int bol;
@@ -80,10 +81,10 @@ void compraasiento(Sala *sala){
 		printf("fila del boleto %d ",i+1);
 		scanf("%d",&x1);
 		printf("columna del boleto %d ",i+1);
-		scanf("%d",&y1);	
+		scanf("%d",&y1);
 		if(sala->asientos[x1-1][y1-1]==NULL)
 			b=1;
-		else 
+		else
 			printf("Lugar ocupado,elija otro por favor \n");
 		}
 		sala->asientos[x1-1][y1-1]=sala->asientos[x-1][y-1];
@@ -102,7 +103,7 @@ void cancelarcompra(Sala *sala){
 		printf("fila del boleto %d ",i+1);
 		scanf("%d",&x);
 		printf("columna del boleto %d ",i+1);
-		scanf("%d",&y);	
+		scanf("%d",&y);
 		if(sala->asientos[x-1][y-1]!=NULL)
 			b=1;
 		else
@@ -121,7 +122,7 @@ void mostrarCine(Sala *cine){
 	for(i=0;i<3;i++){
 		for(j=0;j<10;j++){
 			if((cine+(10*i)+j)->actual!=NULL){
-				printf("En el horario %d en la sala %d tenemos %s\n",i+1,j+1,(cine+(10*i)+j)->actual->nombre); 
+				printf("En el horario %d en la sala %d tenemos %s\n",i+1,j+1,(cine+(10*i)+j)->actual->nombre);
 			}
 		}
 	}

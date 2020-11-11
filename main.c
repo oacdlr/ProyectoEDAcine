@@ -7,8 +7,8 @@
 #include "sala.h"
 #include "gerente.h"
 int main() {
-	int horario,sal,pel;
-	Sala cine[3][10];  
+	int horario,sal,pel,fproducto;
+	Sala cine[3][10];
 	//limpieza extra
 	int i,j;
 	for(i=0;i<3;i++){
@@ -20,27 +20,29 @@ int main() {
 	Pelicula *peliculas;
 	peliculas = (Pelicula *)calloc(N, sizeof(Pelicula));
     llenarArreglo(peliculas);
+    stackProds *pila;
+    pila = crearPila(NDOS);//NDOS es el numero de productos de la bandeja
+    Cola *personas;
+    Cliente *uncliente;
+    uncliente=crearcliente(uncliente);
+    personas= crearCola(12);
     Producto *productos;
     productos = (Producto *)calloc(NDOS, sizeof(Producto));//
     llenarArregloD(productos);
     listarDulces(productos);
-    
-    
-	/*
-	Cliente prueba;
-    Cola *prue;
-    prue=crearCola(5);
-	prueba.bandeja=crearPila(4);
-    pushPila(productos[3],prueba.bandeja);
-    pushPila(productos[2],prueba.bandeja);
-    listarPila(prueba.bandeja);
-    insertar(prue,prueba);
-    listar(*prue);
-	*/
-	
-		
+    for(i=0;i<NDOS;i++)//NDOS ES PUSO PORQUE ES EL NUMERO MÁXIMO DE COSAS QUE EL CLIENTE PUEDE PEDIR
+    {
+        printf("\nProducto %d\n",i+1);
+        scanf("%d",&fproducto);
+        fflush(stdin);
+        printf("%s",productos[fproducto-1]);
+        pushPila(productos[fproducto-1],&pila[0]);
+
+    }
+    listarPila(&pila[0]);
+
 	//menu principal
-	int opprin,opsec;
+	/*int opprin,opsec;
 	do{
 		opprin=desplegarMenu("1)Menu Gerente\t2)Menu Taquilla\t3)Menu Dulceria\t4)salir",4);
 		switch(opprin){
@@ -91,7 +93,7 @@ int main() {
 					switch(opsec){
 					case 1:
 						printf("in enc");
-						
+
 						break;
 					case 2:
 						printf("in atend");
@@ -160,6 +162,6 @@ int main() {
 	imprimirSala(prueba);
 	printf("%d",prueba.actual->ventas);
 	*/
-	
+
 	return 0;
 }

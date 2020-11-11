@@ -6,7 +6,7 @@ stackProds *crearPila(int n){
     stackProds *nuevaPila;
     //crear la pila y el arreglo de la pila
     nuevaPila = (stackProds *)malloc(1*sizeof(stackProds)); //CREA LA ESTRUCTURA PILA CON TODOS SUS ELEMENTOS
-    nuevaPila->bandeja = (Producto *)calloc(n , sizeof(Producto));//CREANDO EL ARREGLO DE LA PILA
+    nuevaPila->bandeja = (Producto *)calloc(n , sizeof(Producto));//CREANDO EL ARREGLO DE LA PILA(productos)
     //INICIALIZA VALORES
     nuevaPila->tope = -1;
     nuevaPila->max = n;
@@ -18,11 +18,12 @@ int pilaLLena(stackProds *pila){
 void pushPila(Producto dato,stackProds *pila){
     pila->tope ++;
     pila->bandeja[pila->tope]=dato;
+    printf("\nProducto = %s \n",pila->bandeja[pila->tope].nombre);
 }
 void listarPila(stackProds *pila){
     int i;
     for (i= pila->tope; i >= 0; i--)
-        printf("\nBandeja[%i] = %s ", i,pila->bandeja->nombre); 
+        printf("\nProducto[%i] = %s ", i,pila->bandeja[i].nombre);
 }
 int pilaVacia(stackProds *pila){
     return (pila->tope == -1);
@@ -40,7 +41,8 @@ void liberaMamoriaCola(stackProds *pila){
     free(pila);
     pila = NULL;
 }
-
+/////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
 Cola *crearCola(int max) {
     Cola *nuevaCola;
     //crear la cola y el arreglo
@@ -63,10 +65,10 @@ int validarEspacio(Cola cola){
 void insertar(Cola *cola,Cliente dato) {
     if (cola->h ==-1)
         cola->h= 0;//INICIO DE LA FILA
-    
+
        if(cola->t == cola->max-1)
        cola->t = -1;
-    
+
     cola->t++;
     //INSERTA EL DATO EN LA FILA
     cola->arrCola[cola->t]=dato;
@@ -106,4 +108,3 @@ Cliente popCola(Cola *cola){
     cola->h++;
     return aux;
 }
-
