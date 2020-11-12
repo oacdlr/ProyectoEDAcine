@@ -137,10 +137,11 @@ void listarCliente(Cliente cliente)
 }
 void iniMostrador(Mostrador *mostrador,Producto *productos){
 	int i;
-	for(i=0;i<8;i++){
+	for(i=0;i<9;i++){
 		(mostrador+i)->exhibido=(productos+i);
 		(mostrador+i)->cantidad+=10;
 		(productos+i)->cantidad-=10;	
+		(mostrador+i)->ventotal=0;
 	}
 }
 void reabastece(Mostrador *mostrador,Producto *productos, int i)

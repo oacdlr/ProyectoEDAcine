@@ -5,4 +5,8 @@
 
 void peliFunciones(Pelicula *peliculas,int *horario,int *sal,int *pel); 
 //funciones de estadistica
+void peliVendida(Pelicula *peliculas);
+void dulceVendido(Producto *productos,Mostrador *mostrador);
+float gananciaDulce(Mostrador mostrador);
+void gananciaDulceria(Mostrador *mostrador);
 #endif

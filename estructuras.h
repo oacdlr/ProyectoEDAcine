@@ -5,7 +5,7 @@ typedef struct {
 	char *nombre;
 	float precio;
 	float venta;
-	float cantidad;
+	int cantidad;
 }Producto;
 
 typedef struct{
@@ -22,6 +22,7 @@ typedef struct{
 typedef struct{
 	Producto *exhibido;
 	int cantidad;
+	int ventotal;
 }Mostrador;
 
 typedef struct {

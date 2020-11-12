@@ -10,4 +10,39 @@ void peliFunciones(Pelicula *peliculas,int *horario,int *sal,int *pel){
 	}
 	*pel=desplegarMenu("Cual Pelicula se reproducira? ",9); 
 }
-
+void peliVendida(Pelicula *peliculas){
+	int i,maxV=1,maxVi;
+	for(i=0;i<9;i++){
+		if((peliculas+i)->ventas>=maxV){
+			maxV=(peliculas+i)->ventas;
+			maxVi=i;
+		}
+	}
+	printf("La pelicula mas vendida es %s con %d boletos vendidos\n",(peliculas+maxVi)->nombre,(peliculas+maxVi)->ventas);
+}
+void dulceVendido(Producto *productos,Mostrador *mostrador){
+	int i,maxV=0,maxVi;
+	for(i=0;i<9;i++){
+		if((mostrador+i)->ventotal>=maxV){
+			maxV=(mostrador+i)->ventotal;
+			maxVi=i;
+		}
+	}
+	printf("El producto mas vendido es %s con %d unidades vendidas\n",(productos+maxVi)->nombre,(mostrador+maxVi)->ventotal);
+}
+float gananciaDulce(Mostrador mostrador){
+	float  ganancia,costo,neto;
+	ganancia=(mostrador.ventotal*mostrador.exhibido->venta);
+	costo=(mostrador.ventotal+mostrador.exhibido->cantidad)*mostrador.exhibido->precio;
+	neto=ganancia-costo;
+	printf("El costo de compra total del producto fue %.2f,Se vendieron %d unidades generando %.2f$ teniendo una ganancia de %.2f\n",costo,mostrador.ventotal,ganancia,neto);
+	return neto;
+}
+void gananciaDulceria(Mostrador *mostrador){
+	int i=0;
+	float ganancia=0;
+	for(i=0;i<9;i++){
+		ganancia+=gananciaDulce(*(mostrador+i));
+	}
+	printf("La ganancia total de la dulceria fue %.2f\n",ganancia);
+}

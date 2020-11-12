@@ -80,17 +80,20 @@ void listar(Cola cola){
    printf("\nCOLA:");
    if (!validarVacio(cola)){
        if (cola.h <= cola.t){
-       for (i=cola.h; i<=cola.t ; i++)
+       for (i=cola.h; i<=cola.t ; i++){
        		listarCliente(cola.arrCola[i]);
-			//printf(" [%i]= %i\t",i, cola.arrCola[i]);
+			listarPila(cola.arrCola[i].bandeja);
+			}
        }
 	   else {
-       		for (i=cola.h; i<cola.max; i++)
+       		for (i=cola.h; i<cola.max; i++){
        			listarCliente(cola.arrCola[i]);
-           //printf("[%i]= %i", i, cola.arrCola[i]);
-        	for(i=0; i<=cola.t; i++)
+       			listarPila(cola.arrCola[i].bandeja);	
+			   }
+        	for(i=0; i<=cola.t; i++){
            		listarCliente(cola.arrCola[i]);
-		 	//  printf(" [%i]= %i\n", i, cola.arrCola[i]);}
+		 		listarPila(cola.arrCola[i].bandeja);
+			 }
    		}
    }
    else
