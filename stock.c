@@ -112,6 +112,7 @@ void llenarArregloD(Producto *productos)
 
 void listarDulces(Producto *productos){
 	int i;
+	printf("\n");
 	for(i=0;i<NDOS;i++){
 		printf("%i",i+1);
 		listarDulce(productos[i]);
@@ -131,17 +132,20 @@ void atenter_cliente(Producto *productos){
 }
 Cliente *crearclienteD()
 {
+    int i;
     Cliente *c_uno;
     c_uno=(Cliente *)calloc(1,sizeof(Cliente));
-
     c_uno->bandeja=(stackProds *)malloc(NDOS*sizeof(stackProds));
+    printf("Hola, Gusta decirnos su edad y genero?\n1)Si\t 2)No");
+	scanf("%d",&i);
+	if(i==1){
 	printf("cual es su edad? ");
 	scanf("%d",&c_uno->edad);
 	printf("cual es su genero?\n 1)Masculino\t2)Femenino ");
 	scanf("%d",&c_uno->genero);
 	c_uno->cuenta=0;
 	return c_uno;
-
+	}
 }
 void listarCliente(Cliente cliente)
 {

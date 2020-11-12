@@ -23,15 +23,23 @@ int main() {
     stackProds *pila;
     pila = crearPila(1);//NDOS es el numero de productos de la bandeja
     Cola *personas;
-    Cliente *uncliente;
-    uncliente=crearclienteD();
-    listarCliente(*uncliente);
+
     personas= crearCola(12);
     Producto *productos;
     productos = (Producto *)calloc(NDOS, sizeof(Producto));//
     llenarArregloD(productos);
-    listarDulces(productos);
+
+
     for(j=0;j<12;j++)
+    {
+        printf("\n");
+       Cliente *uncliente;
+       uncliente=crearclienteD();
+       listarCliente(*uncliente);
+       listarDulces(productos);
+
+       printf("\nHola, que deseas pedir??\n");
+
     for(i=0;i<NDOS;i++)//NDOS ES PUSO PORQUE ES EL NUMERO MÁXIMO DE COSAS QUE EL CLIENTE PUEDE PEDIR
     {
         printf("\nProducto %d\n",i+1);
@@ -42,9 +50,10 @@ int main() {
     uncliente->bandeja=pila;
     listarPila(uncliente->bandeja);
     insertar(&personas[j],*uncliente);
-    free(uncliente->bandeja);
-    free(uncliente);
+    listarCliente(personas[j].arrCola[j]);
+    listar(personas[j]);
 
+    }
 
 
 	//menu principal

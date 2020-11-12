@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include<stdlib.h>3
+#include<stdlib.h>
 #include "estructuras.h"
 #include "sala.h"
 #include "stock.h"
@@ -81,15 +81,15 @@ void listar(Cola cola){
    if (!validarVacio(cola)){
        if (cola.h <= cola.t){
        for (i=cola.h; i<=cola.t ; i++)
-       		listarPila(cola.arrCola[i].bandeja);
+       		listarCliente(cola.arrCola[i]);
 			//printf(" [%i]= %i\t",i, cola.arrCola[i]);
        }
 	   else {
        		for (i=cola.h; i<cola.max; i++)
-       			listarPila(cola.arrCola[i].bandeja);
+       			listarCliente(cola.arrCola[i]);
            //printf("[%i]= %i", i, cola.arrCola[i]);
         	for(i=0; i<=cola.t; i++)
-           		listarPila(cola.arrCola[i].bandeja);
+           		listarCliente(cola.arrCola[i]);
 		 	//  printf(" [%i]= %i\n", i, cola.arrCola[i]);}
    		}
    }
