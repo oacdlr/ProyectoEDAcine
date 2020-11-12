@@ -18,6 +18,7 @@ void asignarPeli(Sala *sala,Pelicula *pelicula);
 void limparSala(Sala *sala);
 Cliente *crearcliente(Cliente in);
 void llenarDatos(Cliente *in);
+Cliente *crearclienteD();
 void imprimirSala(Sala sala);
 void compraasiento(Sala *sala);
 void cancelarcompra(Sala *sala);

@@ -20,5 +20,8 @@ void crearDulce(Producto *productos);
 void llenarArregloD(Producto *productos);
 void listarDulces(Producto *productos);
 void listarDulce(Producto productos);
+void listarCliente(Cliente cliente);
+void iniMostrador(Mostrador *mostrador,Producto *productos);
+void reabastece(Mostrador *mostrador,Producto *productos,int i);
 //funciones de dulceria
 #endif

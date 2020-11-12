@@ -9,7 +9,7 @@ typedef struct {
 }Producto;
 
 typedef struct{
-	Producto *bandeja;
+	Producto *bandej;
 	int tope;
 	int max;
 }stackProds;
@@ -19,6 +19,10 @@ typedef struct{
 	float cuenta;//suma de bandeja precio
 	stackProds *bandeja;
 }Cliente;
+typedef struct{
+	Producto *exhibido;
+	int cantidad;
+}Mostrador;
 
 typedef struct {
     int max; // tama?o de la cola

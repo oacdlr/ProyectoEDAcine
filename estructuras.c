@@ -7,7 +7,7 @@ stackProds *crearPila(int n){
     stackProds *nuevaPila;
     //crear la pila y el arreglo de la pila
     nuevaPila = (stackProds *)malloc(1*sizeof(stackProds)); //CREA LA ESTRUCTURA PILA CON TODOS SUS ELEMENTOS
-    nuevaPila->bandeja = (Producto *)calloc(n , sizeof(Producto));//CREANDO EL ARREGLO DE LA PILA(productos)
+    nuevaPila->bandej = (Producto *)calloc(n , sizeof(Producto));//CREANDO EL ARREGLO DE LA PILA(productos)
     //INICIALIZA VALORES
     nuevaPila->tope = -1;
     nuevaPila->max = n;
@@ -18,19 +18,19 @@ int pilaLLena(stackProds *pila){
 
 void pushPila(Producto dato,stackProds *pila){
     pila->tope ++;
-    pila->bandeja[pila->tope]=dato;
-    printf("\nProducto = %s \n",pila->bandeja[pila->tope].nombre);
+    pila->bandej[pila->tope]=dato;
+    printf("\nProducto = %s \n",pila->bandej[pila->tope].nombre);
 }
 void listarPila(stackProds *pila){
     int i;
     for (i= pila->tope; i >= 0; i--)
-        printf("\nProducto[%i] = %s ", i,pila->bandeja[i].nombre);
+        printf("\nProducto[%i] = %s ", i,pila->bandej[i].nombre);
 }
 int pilaVacia(stackProds *pila){
     return (pila->tope == -1);
 }
 Producto popPila(stackProds *pila){
-    Producto aux = pila->bandeja[pila->tope];
+    Producto aux = pila->bandej[pila->tope];
     pila->tope --;
     return aux;
 }
@@ -38,7 +38,7 @@ void inicializarPila(stackProds *pila){
     pila->tope = -1;
 }
 void liberaMamoriaCola(stackProds *pila){
-    free(pila->bandeja);
+    free(pila->bandej);
     free(pila);
     pila = NULL;
 }

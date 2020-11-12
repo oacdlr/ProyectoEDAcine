@@ -99,6 +99,7 @@ void llenarArregloD(Producto *productos)
             productos[indice].cantidad=atoi(token);
             token = strtok(NULL, delimitador);
             productos[indice].precio=atof(token);
+            productos[indice].venta=productos[indice].precio*1.5;
             //3o. se lee el ?ltimo token para verificar que termino de leer la linea
             //el valor del token ser? NULL por ello termina el ciclo while
             token = strtok(NULL, delimitador);
@@ -119,7 +120,7 @@ void listarDulces(Producto *productos){
 	}
 }
 void listarDulce(Producto productos){
-    printf("%s ---------------%.2f\n",productos.nombre,productos.precio);
+    printf("%s ---------------%.2f\n",productos.nombre,productos.venta);
 }
 
 void atenter_cliente(Producto *productos){
@@ -130,25 +131,30 @@ void atenter_cliente(Producto *productos){
     listarDulces(productos);
 
 }
-Cliente *crearclienteD()
-{
-    int i;
-    Cliente *c_uno;
-    c_uno=(Cliente *)calloc(1,sizeof(Cliente));
-    c_uno->bandeja=(stackProds *)malloc(NDOS*sizeof(stackProds));
-    printf("Hola, Gusta decirnos su edad y genero?\n1)Si\t 2)No");
-	scanf("%d",&i);
-	if(i==1){
-	printf("cual es su edad? ");
-	scanf("%d",&c_uno->edad);
-	printf("cual es su genero?\n 1)Masculino\t2)Femenino ");
-	scanf("%d",&c_uno->genero);
-	c_uno->cuenta=0;
-	return c_uno;
-	}
-}
 void listarCliente(Cliente cliente)
 {
     printf("\nCuenta: %0.2f  Edad: %d Genero: %d",cliente.cuenta,cliente.edad,cliente.genero);
 }
+void iniMostrador(Mostrador *mostrador,Producto *productos){
+	int i;
+	for(i=0;i<8;i++){
+		(mostrador+i)->exhibido=(productos+i);
+		(mostrador+i)->cantidad+=10;
+		(productos+i)->cantidad-=10;	
+	}
+}
+void reabastece(Mostrador *mostrador,Producto *productos, int i)
+{
+        if((productos->cantidad)>10)
+        {
+             (mostrador+i)->cantidad+=10;
+             (productos+i)->cantidad-=10;
+        }
 
+        else
+        {
+            (mostrador+i)->cantidad+=(productos+i)->cantidad;
+            (productos+i)->cantidad=0;
+        }
+
+}

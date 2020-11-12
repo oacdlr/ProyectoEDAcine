@@ -33,6 +33,19 @@ void llenarDatos(Cliente *in){
 	scanf("%d",&in->genero);
 	in->cuenta=0;
 }
+Cliente *crearclienteD()
+{
+    int i;
+    Cliente *c_uno;
+    c_uno=(Cliente *)calloc(1,sizeof(Cliente));
+    c_uno->bandeja=(stackProds *)malloc(NDOS*sizeof(stackProds));
+    printf("Hola, Gusta decirnos su edad y genero?\n1)Si\t 2)No");
+	scanf("%d",&i);
+	if(i==1){
+		llenarDatos(c_uno);
+	}
+	return c_uno;
+}
 void imprimirSala(Sala sala){
 	int i,j;
 	printf("la pelicula en esta sala es:%s\n",sala.actual->nombre);

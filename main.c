@@ -18,52 +18,28 @@ int main() {
 	}
 	//
 	Pelicula *peliculas;
+	Mostrador *mostrador;
+	mostrador=(Mostrador *)calloc(NDOS,sizeof(Mostrador));
 	peliculas = (Pelicula *)calloc(N, sizeof(Pelicula));
     llenarArreglo(peliculas);
     stackProds *pila;
-    pila = crearPila(1);//NDOS es el numero de productos de la bandeja
+    pila = crearPila(NDOS);//NDOS es el numero de productos de la bandeja
     Cola *personas;
 
-    personas= crearCola(12);
+    personas= crearCola(15);
     Producto *productos;
     productos = (Producto *)calloc(NDOS, sizeof(Producto));//
     llenarArregloD(productos);
-
-
-    for(j=0;j<12;j++)
-    {
-        printf("\n");
-       Cliente *uncliente;
-       uncliente=crearclienteD();
-       listarCliente(*uncliente);
-       listarDulces(productos);
-
-       printf("\nHola, que deseas pedir??\n");
-
-    for(i=0;i<NDOS;i++)//NDOS ES PUSO PORQUE ES EL NUMERO MÁXIMO DE COSAS QUE EL CLIENTE PUEDE PEDIR
-    {
-        printf("\nProducto %d\n",i+1);
-        scanf("%d",&fproducto);
-        fflush(stdin);
-        pushPila(productos[fproducto-1],pila);
-    }
-    uncliente->bandeja=pila;
-    listarPila(uncliente->bandeja);
-    insertar(&personas[j],*uncliente);
-    listarCliente(personas[j].arrCola[j]);
-    listar(personas[j]);
-
-    }
-
-
+	iniMostrador(mostrador,productos);
+    Cliente *uncliente;
 	//menu principal
-	/*int opprin,opsec;
+	int opprin,opsec;
 	do{
-		opprin=desplegarMenu("1)Menu Gerente\t2)Menu Taquilla\t3)Menu Dulceria\t4)salir",4);
+		opprin=desplegarMenu("\n1)Menu Gerente\t2)Menu Taquilla\t3)Menu Dulceria\t4)salir",4);
 		switch(opprin){
 			case 1:
 				do{
-					opsec=desplegarMenu("1)Asignar Funciones a salas\n2)Estadisticas del Cine\n3)salir",3);
+					opsec=desplegarMenu("\n1)Asignar Funciones a salas\n2)Estadisticas del Cine\n3)salir",3);
 					switch(opsec){
 						case 1:
 							printf("Buenos dias Gerente,que peliculas vamos a mostrar hoy?");
@@ -81,7 +57,7 @@ int main() {
 				break;
 			case 2:
 				do{
-					opsec=desplegarMenu("1)Compra de boleto\t2)Cancelacion de boleto\t3)salir",3);
+					opsec=desplegarMenu("\n1)Compra de boleto\t2)Cancelacion de boleto\t3)salir",3);
 					switch(opsec){
 						case 1:
 							mostrarCine(cine);
@@ -104,14 +80,52 @@ int main() {
 				break;
 			case 3:
 				do{
-					opsec=desplegarMenu("1)Encolar Cliente\t2)Atender Cliente\t3)salir",3);
+					opsec=desplegarMenu("\n1)Encolar Cliente\t2)Atender Cliente\t3)salir",3);
 					switch(opsec){
 					case 1:
-						printf("in enc");
-
+						uncliente=crearclienteD();
+						inicializarPila(pila);
+    					listarDulces(productos);
+					    printf("\nHola, cuantos producto deseas pedir??\n");
+					    scanf("%d",&j);
+					    for(i=0;i<j;i++){
+				        	printf("\nProducto %d\n",i+1);
+				        	scanf("%d",&fproducto);
+				        	pushPila(productos[fproducto-1],pila);
+        					uncliente->cuenta+=(productos+fproducto-1)->venta;
+					        printf("Su cuenta actual es:%.2f\n",uncliente->cuenta);
+    					}
+    					uncliente->bandeja=pila;
+    					listarPila(uncliente->bandeja);
+    					insertar(personas,*uncliente);
+					    listar(*personas);
 						break;
 					case 2:
-						printf("in atend");
+						i=0;
+						while(i==0&&!pilaVacia(personas->arrCola[personas->h].bandeja)){
+							Producto a;
+							a=popPila(personas->arrCola[personas->h].bandeja);
+							//printf("%s ",a.nombre);
+							for(j=0;j<8;j++){
+								if(productos[j].nombre==a.nombre){
+									if(mostrador[j].cantidad>=1){
+										mostrador[j].cantidad--;
+										//printf("in");
+									}
+									else{
+										i=1;
+										//printf("out");
+										reabastece(mostrador,productos,j);
+										pushPila(a,personas->arrCola[personas->h].bandeja);
+										insertar(personas,popCola(personas));
+									}
+								}
+							}
+							if(pilaVacia(personas->arrCola[personas->h].bandeja))
+								i=1;
+								popCola(personas);
+						}
+						listar(*personas);
 						break;
 					}
 				}while(opsec!=3);
@@ -180,3 +194,4 @@ int main() {
 
 	return 0;
 }
+
