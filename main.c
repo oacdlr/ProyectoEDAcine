@@ -34,7 +34,7 @@ int main() {
     Cliente *uncliente;
     //printf("--%d",productos[1].cantidad);
 	//menu principal
-	int opprin,opsec;
+	int opprin,opsec,opter;
 	do{
 		opprin=desplegarMenu("\n1)Menu Gerente\t2)Menu Taquilla\t3)Menu Dulceria\t4)salir",4);
 		switch(opprin){
@@ -51,10 +51,50 @@ int main() {
 							}while(desplegarMenu("Desea seguir agendando?\n1)si  2)no",2)==1);
 							break;
 						case 2:
-							peliVendida(peliculas);
-							dulceVendido(productos,mostrador);
-							gananciaDulce(mostrador[0]);
-							gananciaDulceria(mostrador);
+							printf("Que estadistica desea ver?\n");
+							opter=desplegarMenu("1)Pelicula mas vendida\n2)Dulce mas vendido\3)Pelicula menos vendida\n4)Dulce menos vendido\n5)ganancia de un dulce\n6)Ganancia total de la dulceria\n7)Ventas en una sala\n8)Ventas en un horario\n9)Ventas totales\n10)Genero mas vendido",10);
+							switch(opter){
+								case 1:
+									peliVendida(peliculas);
+									break;
+								case 2:
+									dulceVendido(productos,mostrador);
+									break;
+								case 3:
+									pelimenosVen(peliculas);
+									break;
+								case 4:
+									dulcemenosVen(productos,mostrador);
+									break;
+								case 5:
+									printf("Que dulce desea saber la ganancia?");
+									scanf("%d",&i);
+									gananciaDulce(mostrador[i]);
+									break;
+								case 6:
+									gananciaDulceria(mostrador);
+									break;
+								case 7:
+									printf("de que sala desea saber las ventas?");
+									printf("En que horario?");
+									scanf("%d",&i);
+									printf("En que sala?");
+									scanf("%d",&j);
+									ventasSala(&cine[i-1][j-1]);
+									break;
+								case 8:
+									printf("De que horario desea saber las ventas?");
+									scanf("%d",&i);
+									ventasHorario(i-1,cine);
+									break;
+								case 9:
+									ventasCine(peliculas);
+									break;
+								case 10:
+									generoVendido(peliculas);
+									break;
+								
+							}
 							break;
 					}
 				}while(opsec!=3);
@@ -141,6 +181,8 @@ int main() {
 				break;
 		}
 	}while(opprin!=4);
+	printf("%d",cine[0][0].asientos[0][0]->genero);
+	//generoclientesven(cine);
 	//espacio para pruebas
 
 
