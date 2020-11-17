@@ -32,15 +32,16 @@ int main() {
 
     personas= crearCola(15);
     Cliente *uncliente;
-    //printf("--%d",productos[1].cantidad);
 	//menu principal
+	printf("Bienvenido a cineF.Ilos\n");
+	printf("   aaaaaaa    \n   aaaaaaa    \n|\\aaaaaaaaa/|\n|===========|\n|  POPCORN  |\n|===========|\n|___________|\n");
 	int opprin,opsec,opter;
 	do{
-		opprin=desplegarMenu("\n1)Menu Gerente\t2)Menu Taquilla\t3)Menu Dulceria\t4)salir",4);
+		opprin=desplegarMenu("\n\t**Menu Principal**\n1)Menu Gerente\t2)Menu Taquilla\t3)Menu Dulceria\t4)salir",4);
 		switch(opprin){
 			case 1:
 				do{
-					opsec=desplegarMenu("\n1)Asignar Funciones a salas\n2)Estadisticas del Cine\n3)salir",3);
+					opsec=desplegarMenu("\n\t**Menu Gerente**\n1)Asignar Funciones a salas\n2)Estadisticas del Cine\n3)salir",3);
 					switch(opsec){
 						case 1:
 							printf("Buenos dias Gerente,que peliculas vamos a mostrar hoy?");
@@ -101,7 +102,7 @@ int main() {
 				break;
 			case 2:
 				do{
-					opsec=desplegarMenu("\n1)Compra de boleto\t2)Cancelacion de boleto\t3)salir",3);
+					opsec=desplegarMenu("\n\t**Menu de Taquilla**\n1)Compra de boleto\t2)Cancelacion de boleto\t3)salir",3);
 					switch(opsec){
 						case 1:
 							mostrarCine(cine);
@@ -109,7 +110,6 @@ int main() {
 							eleccionSala(&horario,&sal);
 							}while(cine[horario-1][sal-1].actual==NULL);
 							compraasiento(&cine[horario-1][sal-1]);
-							//se compro asiento
 							imprimirSala(cine[horario-1][sal-1]);
 							break;
 						case 2:
@@ -124,7 +124,7 @@ int main() {
 				break;
 			case 3:
 				do{
-					opsec=desplegarMenu("\n1)Encolar Cliente\t2)Atender Cliente\t3)salir",3);
+					opsec=desplegarMenu("\n\t**Menu de Dulceria**\n1)Encolar Cliente\t2)Atender Cliente\t3)salir",3);
 					switch(opsec){
 					case 1:
 						uncliente=crearclienteD();
@@ -156,11 +156,9 @@ int main() {
 										printf("\nSirviendo su %s\n",a.nombre);
 										mostrador[j].cantidad--;
 										mostrador[j].ventotal++;
-										//printf("in");
 									}
 									else{
 										i=1;
-										//printf("out");
 										reabastece(mostrador,productos,j);
 										pushPila(a,personas->arrCola[personas->h].bandeja);
 										insertar(personas,popCola(personas));
@@ -181,11 +179,6 @@ int main() {
 				break;
 		}
 	}while(opprin!=4);
-	printf("%d",cine[0][0].asientos[0][0]->genero);
-	//generoclientesven(cine);
-	//espacio para pruebas
-
-
 	return 0;
 }
 

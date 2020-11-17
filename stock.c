@@ -41,9 +41,7 @@ void llenarArreglo(Pelicula *peliculas){
         indice++;
         while (token != NULL)
             {
-            //1o. se crea la memoria que falta para el cliente i-esimo
             crearPelicula(&peliculas[indice]);
-            //2o. se copia en los elementois del cliente el token
             strcpy(peliculas[indice].nombre,token);
             token = strtok(NULL, delimitador);
             strcpy(peliculas[indice].idioma,token);
@@ -51,8 +49,6 @@ void llenarArreglo(Pelicula *peliculas){
             strcpy(peliculas[indice].edadminima,token);
             token = strtok(NULL, delimitador);
             strcpy(peliculas[indice].genero,token);
-            //3o. se lee el ?ltimo token para verificar que termino de leer la linea
-            //el valor del token ser? NULL por ello termina el ciclo while
             token = strtok(NULL, delimitador);
         }
     }
@@ -85,23 +81,19 @@ void llenarArregloD(Producto *productos)
         printf( "Error (NO ABIERTO)\n" );
         return ;
     }
-    indice = -1; //INICIALIZA EL INDICE DEL ARREGLO
+    indice = -1;
     while(fgets(linea,1023, archivo) != NULL){
         token = strtok(linea, delimitador);
         indice++;
         while (token != NULL)
             {
-            //1o. se crea la memoria que falta para el cliente i-esimo
             crearDulce(&productos[indice]);
-            //2o. se copia en los elementois del cliente el token
             strcpy(productos[indice].nombre,token);
             token = strtok(NULL, delimitador);
             productos[indice].cantidad=atoi(token);
             token = strtok(NULL, delimitador);
             productos[indice].precio=atof(token);
             productos[indice].venta=productos[indice].precio*1.5;
-            //3o. se lee el ?ltimo token para verificar que termino de leer la linea
-            //el valor del token ser? NULL por ello termina el ciclo while
             token = strtok(NULL, delimitador);
         }
     }
@@ -124,8 +116,6 @@ void listarDulce(Producto productos){
 }
 
 void atenter_cliente(Producto *productos){
-    //Parte del main
-     ////
     printf("\nHola, que deseas ordenar ??\n");
     printf("\nTenemos el siguiente cat?logo de dulces\n");
     listarDulces(productos);

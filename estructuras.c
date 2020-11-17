@@ -5,10 +5,8 @@
 #include "stock.h"
 stackProds *crearPila(int n){
     stackProds *nuevaPila;
-    //crear la pila y el arreglo de la pila
-    nuevaPila = (stackProds *)malloc(1*sizeof(stackProds)); //CREA LA ESTRUCTURA PILA CON TODOS SUS ELEMENTOS
-    nuevaPila->bandej = (Producto *)calloc(n , sizeof(Producto));//CREANDO EL ARREGLO DE LA PILA(productos)
-    //INICIALIZA VALORES
+    nuevaPila = (stackProds *)malloc(1*sizeof(stackProds)); 
+    nuevaPila->bandej = (Producto *)calloc(n , sizeof(Producto));
     nuevaPila->tope = -1;
     nuevaPila->max = n;
 }
@@ -65,13 +63,12 @@ int validarEspacio(Cola cola){
 
 void insertar(Cola *cola,Cliente dato) {
     if (cola->h ==-1)
-        cola->h= 0;//INICIO DE LA FILA
+        cola->h= 0;
 
        if(cola->t == cola->max-1)
        cola->t = -1;
 
     cola->t++;
-    //INSERTA EL DATO EN LA FILA
     cola->arrCola[cola->t]=dato;
 }
 

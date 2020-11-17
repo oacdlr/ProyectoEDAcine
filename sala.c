@@ -8,7 +8,7 @@ void limpiarCine(Sala *sala){
 }
 void asignarPeli(Sala *sala,Pelicula *peli){
 	sala->actual=peli;
-	printf("se modifico y ahora es:%s\n",(sala->actual->nombre));
+	printf("Se modifico y ahora es:%s\n",(sala->actual->nombre));
 }
 void limpiarSala(Sala *sala){
 	int i,j;
@@ -27,9 +27,9 @@ Cliente *crearcliente(Cliente in){
 	return newcl;
 }
 void llenarDatos(Cliente *in){
-	printf("cual es su edad? ");
+	printf("Cual es su edad? ");
 	scanf("%d",&in->edad);
-	printf("cual es su genero?\n 1)Masculino\t2)Femenino ");
+	printf("Cual es su genero?\n 1)Masculino\t2)Femenino ");
 	scanf("%d",&in->genero);
 	in->cuenta=0;
 }
@@ -48,8 +48,8 @@ Cliente *crearclienteD()
 }
 void imprimirSala(Sala sala){
 	int i,j;
-	printf("la pelicula en esta sala es:%s\n",sala.actual->nombre);
-	printf("imprimiendo Sala.....X ocupado O disponible\n  ");
+	printf("La pelicula en esta sala es:%s\n",sala.actual->nombre);
+	printf("Imprimiendo Sala.....X ocupado O disponible\n  ");
 	for(i=0;i<15;i++)
 		printf("%d ",i+1);
 	printf("\n");
@@ -76,7 +76,7 @@ void compraasiento(Sala *sala){
 	if(i==1){
 		llenarDatos(&cli);
 	}
-	printf("cuantos asientos van a ser?\n");
+	printf("Cuantos asientos van a ser?\n");
 	scanf("%d",&bol);
 	while(b==0){
 	printf("fila del boleto 1 ");
@@ -110,7 +110,7 @@ void compraasiento(Sala *sala){
 
 void cancelarcompra(Sala *sala){
 	int bol,x,y,i,b;
-	printf("cuantos asientos quiere cancelar?\n");
+	printf("Cuantos asientos quiere cancelar?\n");
 	scanf("%d",&bol);
 	for(i=0;i<bol;i++){
 		b=0;
@@ -132,7 +132,7 @@ void cancelarcompra(Sala *sala){
 
 void mostrarCine(Sala *cine){
 	int i,j;
-	printf("las peliculas reproduciendose son:\n");
+	printf("Las peliculas reproduciendose son:\n");
 	printf("Considere que existen 3 horarios:\n1)matutino\t2)vespertino\t3)nocturno\n");
 	for(i=0;i<3;i++){
 		for(j=0;j<10;j++){
