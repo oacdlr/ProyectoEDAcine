@@ -21,9 +21,9 @@ void peliVendida(Pelicula *peliculas){
 	printf("La pelicula mas vendida es %s con %d boletos vendidos\n",(peliculas+maxVi)->nombre,(peliculas+maxVi)->ventas);
 }
 void dulceVendido(Producto *productos,Mostrador *mostrador){
-	int i,maxV=0,maxVi;
-	for(i=0;i<9;i++){
-		if((mostrador+i)->ventotal>=maxV){
+	int i,maxV=0,maxVi=0;
+	for(i=0;i<8;i++){
+		if((mostrador+i)->ventotal>maxV){
 			maxV=(mostrador+i)->ventotal;
 			maxVi=i;
 		}

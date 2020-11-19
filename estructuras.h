@@ -7,7 +7,6 @@ typedef struct {
 	float venta;
 	int cantidad;
 }Producto;
-
 typedef struct{
 	Producto *bandej;
 	int tope;

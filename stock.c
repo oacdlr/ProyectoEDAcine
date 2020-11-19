@@ -97,10 +97,6 @@ void llenarArregloD(Producto *productos)
             token = strtok(NULL, delimitador);
         }
     }
-
-
-
-
 }
 
 void listarDulces(Producto *productos){

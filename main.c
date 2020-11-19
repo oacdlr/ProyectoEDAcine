@@ -14,6 +14,7 @@ int main() {
 	for(i=0;i<3;i++){
 			for(j=0;j<10;j++){
 				limpiarCine(&cine[i][j]);
+				limpiarSala(&cine[i][j]);
 			}
 	}
 	//
@@ -53,7 +54,7 @@ int main() {
 							break;
 						case 2:
 							printf("Que estadistica desea ver?\n");
-							opter=desplegarMenu("1)Pelicula mas vendida\n2)Dulce mas vendido\3)Pelicula menos vendida\n4)Dulce menos vendido\n5)ganancia de un dulce\n6)Ganancia total de la dulceria\n7)Ventas en una sala\n8)Ventas en un horario\n9)Ventas totales\n10)Genero mas vendido",10);
+							opter=desplegarMenu("1)Pelicula mas vendida\n2)Dulce mas vendido\n3)Pelicula menos vendida\n4)Dulce menos vendido\n5)ganancia de un dulce\n6)Ganancia total de la dulceria\n7)Ventas en una sala\n8)Ventas en un horario\n9)Ventas totales\n10)Genero mas vendido",10);
 							switch(opter){
 								case 1:
 									peliVendida(peliculas);
@@ -81,15 +82,15 @@ int main() {
 									scanf("%d",&i);
 									printf("En que sala?");
 									scanf("%d",&j);
-									ventasSala(&cine[i-1][j-1]);
+									printf("las ventas en esta sala son %d",ventasSala(&cine[i-1][j-1]));
 									break;
 								case 8:
 									printf("De que horario desea saber las ventas?");
 									scanf("%d",&i);
-									ventasHorario(i-1,cine);
+									printf("las ventas en este horario son %d",ventasHorario(i-1,cine));
 									break;
 								case 9:
-									ventasCine(peliculas);
+									printf("Las ventas totales del cine son %d",ventasCine(peliculas));
 									break;
 								case 10:
 									generoVendido(peliculas);
